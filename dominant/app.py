@@ -36,7 +36,6 @@ if upload_image is not None:
     compactness, label, centers = cv2.kmeans(
         data, number_clusters, None, criteria, 10, flags
     )
-
     bars = []
     rgb_values = []
     for index, row in enumerate(centers):
