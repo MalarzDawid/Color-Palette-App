@@ -1,8 +1,8 @@
 import uvicorn
 from fastapi import FastAPI, File, UploadFile
 
-from dominant.clustering import (cv_clustering, preprocess, read_image,
-                                 values_to_dict)
+from dominant.clustering import cv_clustering
+from dominant.utils import preprocess, read_image, values_to_dict
 
 app = FastAPI()
 
