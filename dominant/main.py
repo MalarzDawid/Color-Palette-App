@@ -8,12 +8,12 @@ app = FastAPI()
 
 
 @app.get("/")
-def read_about():
+def read_about() -> None:
     return {"About": "Load image and create a color palette"}
 
 
-@app.post("/uploadfile/")
-async def create_upload_file(file: UploadFile = File(...), clusters: int = 3):
+@app.post("/get_palette")
+async def create_upload_file(file: UploadFile = File(...), clusters: int = 3) -> dict:
     image = read_image(await file.read())
     image_preprocess = preprocess(image)
     values = cv_clustering(image_preprocess, clusters)
@@ -21,5 +21,5 @@ async def create_upload_file(file: UploadFile = File(...), clusters: int = 3):
     return {"palette": output}
 
 
-def start():
+def start() -> None:
     uvicorn.run("dominant.main:app", host="0.0.0.0", port=8000, reload=True)

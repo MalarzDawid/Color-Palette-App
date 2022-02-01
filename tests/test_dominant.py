@@ -1,4 +1,3 @@
-from argparse import ArgumentError
 from dominant import __version__
 from dominant.utils import values_to_dict
 import numpy as np
