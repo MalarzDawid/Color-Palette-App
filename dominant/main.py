@@ -1,3 +1,5 @@
+from enum import Enum
+
 import uvicorn
 from fastapi import FastAPI, File, UploadFile
 
@@ -7,16 +9,26 @@ from dominant.utils import preprocess, read_image, values_to_dict
 app = FastAPI()
 
 
+class ClusteringType(str, Enum):
+    opencv = "opencv"
+    sklearn = "sklearn"
+
+
 @app.get("/")
 def read_about() -> None:
     return {"About": "Load image and create a color palette"}
 
 
 @app.post("/get_palette")
-async def create_upload_file(file: UploadFile = File(...), clusters: int = 3) -> dict:
+async def create_upload_file(
+    clustering_type: ClusteringType, file: UploadFile = File(...), clusters: int = 3
+) -> dict:
     image = read_image(await file.read())
     image_preprocess = preprocess(image)
-    values = cv_clustering(image_preprocess, clusters)
+    if clustering_type == "opencv":
+        values = cv_clustering(image_preprocess, clusters)
+    if clustering_type == "sklearn":
+        return {"palette": "Not work"}
     output = values_to_dict(values)
     return {"palette": output}
 

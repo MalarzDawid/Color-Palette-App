@@ -29,7 +29,7 @@ def values_to_dict(values: np.ndarray) -> dict:
 
 def create_bar(
     height: int, width: int, color: List[float]
-) -> Union(np.ndarray, Tuple[float]):
+) -> Union[np.ndarray, Tuple[float]]:
     bar = np.zeros(shape=(height, width, 3), dtype=np.uint8)
     bar[:] = color
     red, green, blue = int(color[2]), int(color[1]), int(color[0])
