@@ -4,7 +4,7 @@ from PIL import Image
 from dominant.clustering import cv_clustering
 from dominant.utils import create_palette, preprocess
 
-st.title("Color palette - App")
+st.title("Color palette - App 🎨")
 
 upload_image = st.file_uploader("Choose an image...", type="jpg")
 
