@@ -20,7 +20,7 @@ def read_about() -> None:
 
 
 @app.post("/get_palette")
-async def create_upload_file(
+async def get_palette(
     clustering_type: ClusteringType, file: UploadFile = File(...), clusters: int = 3
 ) -> dict:
     image = read_image(await file.read())
