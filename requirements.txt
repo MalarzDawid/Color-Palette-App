@@ -2,5 +2,5 @@ streamlit
 opencv-python
 scikit-learn
 fastapi
-uvicorn["standard"]
+uvicorn
 python-multipart
