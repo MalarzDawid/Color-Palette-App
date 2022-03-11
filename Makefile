@@ -4,3 +4,6 @@ streamlit_app:
 format:
 	black dominant/
 	isort dominant/
+
+install:
+	pip install -r requirements.txt
