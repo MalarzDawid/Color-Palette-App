@@ -5,7 +5,6 @@
 # Tech stack: 💻
 - Python
 - OpenCV
-- Scikit-Learn
 - Streamlit
 - FastAPI
 
